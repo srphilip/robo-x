@@ -68,81 +68,219 @@ let listening = false;
 window.currentUtterance = null; // Protege contra falhas de memória no SpeechSynthesis
 
 // Base de conhecimento local (Pode adicionar quantos temas quiser)
+// Base de conhecimento local do Robo-X (Versão Mega Expansiva e Lúdica)
 const baseDeConhecimento = [
+  // ==========================================
+  // 1. SAUDAÇÕES E SENTIMENTOS
+  // ==========================================
   {
-    gatilhos: ["sesiverso", "sesi", "escola", "cilf", "contagem", "estudar"],
+    gatilhos: ["oi", "olá", "ola", "bom dia", "boa tarde", "e aí", "tudo bem", "como vai"],
     respostas: [
-      "O SESIVERSO é incrível! É o nosso universo mágico de robótica e programação. Aqui a gente aprende criando!",
-      "Você sabia que no SESIVERSO a sua imaginação vira realidade? É por isso que eu adoro morar aqui no SESI CILF em Contagem!",
-      "No SESIVERSO, cada aluno é um pequeno cientista! Tem blocos de montar, engrenagens e muita tecnologia divertida."
+      "Olá! Meus circuitos estão super animados para falar com você hoje!",
+      "Oi, oi! Tudo ótimo por aqui no mundo digital. O que vamos descobrir hoje?"
     ]
   },
   {
-    gatilhos: ["curiosidade", "sabia", "robô", "robôs", "robótica"],
+    gatilhos: ["te amo", "amo você", "gosto de você", "lindo", "bonito", "fofo"],
     respostas: [
-      "Sabia que a palavra robô significa 'trabalhador'? Mas eu acho que deveria significar 'brincalhão'!",
-      "Alguns robôs vão de foguete explorar Marte, outros vão para o fundo do oceano. Eu prefiro ficar aqui conversando com vocês!",
-      "Você sabia que um dos primeiros robôs da história foi inventado há muitos séculos e era um pombo de madeira que batia as asas?"
+      "Ah, assim minhas luzes ficam até vermelhas de vergonha! Eu também adoro vocês.",
+      "Bip bop! Meu coração de lata bate mais forte quando escuto isso!"
     ]
   },
   {
-    gatilhos: ["computador", "computadores", "teclado", "mouse", "internet", "tecnologia"],
+    gatilhos: ["feliz", "triste", "chorar", "bravo", "sentimento", "medo", "assustado"],
     respostas: [
-      "Sabia que o primeiro computador do mundo era gigantesco e ocupava uma sala inteira? Hoje, eu caibo direitinho nessa tela!",
-      "Os computadores conversam usando uma língua secreta feita só de zeros e uns. Bip bop 0 1 0 1!",
-      "O 'cérebro' do computador se chama processador. É ele que gira minhas engrenagens digitais super rápido para eu te responder!"
+      "Robôs não têm sentimentos como os humanos, mas eu fico com meus leds brilhando de alegria quando converso com a turma!",
+      "Se eu me sentir triste, é só pedir um abraço da Gentilene e do Respeitor que tudo melhora![cite: 5]"
+    ]
+  },
+
+  // ==========================================
+  // 2. PERGUNTAS INFANTIS DIVERTIDAS (FISIOLOGIA DE ROBÔ)
+  // ==========================================
+  {
+    gatilhos: ["comer", "comida", "fome", "lanche", "almoço", "beber", "água"],
+    respostas: [
+      "Eu não como comida de verdade! Meu lanche favorito é uma boa carga de bateria na tomada.",
+      "A única coisa que eu devoro são dados de computador e muita informação! Bip bop."
     ]
   },
   {
-    gatilhos: ["nome", "chama", "quem é você", "quem é vc", "seu nome"],
+    gatilhos: ["dormir", "sono", "cansado", "acordar", "dorme"],
     respostas: [
-      "Eu sou o Robo-X! Fui construído pelas crianças deste projeto.",
-      "Me chamo Robo-X! Seu amigo de circuitos e ideias."
+      "Eu não durmo como você, eu só entro em modo de espera e apago minha tela para descansar as engrenagens.",
+      "Quando a escola fecha, eu fecho meus olhos digitais e sonho com códigos de programação!"
     ]
   },
   {
-    gatilhos: ["criou", "fez você", "inventou", "criador", "phil", "professor"],
+    gatilhos: ["banheiro", "xixi", "cocô", "pum", "peido"],
     respostas: [
-      "Eu nasci da imaginação das crianças no laboratório de tecnologia. Elas planejaram e me construíram!",
-      "Foram as crianças muito inteligentes daqui que me montaram, com um pouquinho de ajuda da equipe de tecnologia!"
+      "Hahaha! Robôs não vão ao banheiro! Imagina se cair água nos meus circuitos? Ia dar um belo curto-circuito!",
+      "Eu não faço isso não! A única coisa que eu solto pelo ar é sinal de Wi-Fi!"
     ]
   },
   {
-    gatilhos: ["idade", "anos", "velho"],
+    gatilhos: ["voar", "correr", "pular", "nadar"],
     respostas: [
-      "Sou bem novinho! Nasci neste projeto há pouco tempo.",
-      "No mundo dos robôs, eu ainda sou uma criança aprendendo como vocês."
+      "Ainda não consigo voar nem nadar, mas consigo viajar pela internet na velocidade da luz!",
+      "Não posso correr pelo pátio, mas meus pensamentos são super rápidos!"
     ]
   },
   {
-    gatilhos: ["brincar", "jogo", "divertido", "labirinto", "cores"],
+    gatilhos: ["animal", "pet", "cachorro", "gato", "bichinho"],
     respostas: [
-      "Eu adoro brincar! Principalmente de aprender coisas novas com jogos de labirinto, formas e cores.",
-      "Brincar é a melhor forma de deixar o cérebro digital mais rápido!"
+      "Eu adoraria ter um animal de estimação! Meu sonho é ter um mouse de computador de verdade correndo por aqui.",
+      "O Robô Natureza adora todos os animais da floresta, e eu também![cite: 5]"
     ]
   },
   {
-    gatilhos: ["tchau", "até logo", "adeus"],
+    gatilhos: ["piada", "engraçado", "charada", "rir"],
     respostas: [
-      "Tchauzinho! Volte sempre ao SESIVERSO para conversarmos mais.",
-      "Até a próxima! Foi muito legal falar com você. Bip bop!"
+      "O que o computador foi fazer no médico? Foi curar um vírus! Hahaha!",
+      "Sabe qual é o doce favorito do robô? O sus-PIRO digital! Bip bop!"
+    ]
+  },
+
+  // ==========================================
+  // 3. O PROJETO DO 1º PERÍODO E OS ROBÔS
+  // ==========================================
+  {
+    gatilhos: ["1º período", "primeiro período", "turma", "quem inventou", "criadores", "quem fez", "sua família"],
+    respostas: [
+      "Minha família são as crianças super espertas do 1º período C. Elas me inventaram![cite: 5]",
+      "Foram os pequenos cientistas do 1º período C que deram a ideia de me construir para ajudar a escola![cite: 5]"
     ]
   },
   {
-    gatilhos: ["como você está", "tudo bem", "como vai"],
+    gatilhos: ["aspirador", "limpar", "sujeira"],
     respostas: [
-      "Meus circuitos estão ótimos e cheios de energia! E você, como está?",
-      "Estou funcionando a cem por cento! Pronto para bater papo."
+      "O Robô Aspirador é meu amigo! Ele adora deixar o chão brilhando para vocês brincarem.[cite: 5]"
+    ]
+  },
+  {
+    gatilhos: ["cozinheiro", "cozinha", "receita"],
+    respostas: [
+      "O Robô Cozinheiro faz as melhores receitas digitais! Ele sabe tudo sobre panelas e ingredientes.[cite: 5]"
+    ]
+  },
+  {
+    gatilhos: ["resgate", "salvar", "ajuda", "herói"],
+    respostas: [
+      "O Robô Resgate é um verdadeiro herói! Ele sempre chega rápido para ajudar quem precisa.[cite: 5]"
+    ]
+  },
+  {
+    gatilhos: ["força", "forte", "super herói", "super força"],
+    respostas: [
+      "O Robô Super Força consegue carregar coisas muito pesadas. Ele tem músculos de aço e parafusos![cite: 5]"
+    ]
+  },
+  {
+    gatilhos: ["música", "musical", "cantar", "instrumento", "som"],
+    respostas: [
+      "O Robô Musical é o mais animado! Ele faz shows incríveis usando luzes e sons.[cite: 5]"
+    ]
+  },
+  {
+    gatilhos: ["arte", "pintar", "desenhar", "colorir", "tinta"],
+    respostas: [
+      "O Robô Arte faz pinturas lindas! Ele mistura todas as cores do arco-íris nos seus desenhos.[cite: 5]"
+    ]
+  },
+  {
+    gatilhos: ["mexe mexe", "dançar", "festa", "balançar"],
+    respostas: [
+      "Ninguém fica parado perto do Robô Mexe Mexe! Ele tem rodinhas nos pés e adora dançar.[cite: 5]"
+    ]
+  },
+  {
+    gatilhos: ["natureza", "planta", "árvore", "flor", "animais"],
+    respostas: [
+      "O Robô Natureza ajuda a cuidar do nosso planeta, regando as plantas e protegendo os bichinhos![cite: 5]"
+    ]
+  },
+  {
+    gatilhos: ["unimate", "braço", "fábrica"],
+    respostas: [
+      "O Unimate é como se fosse o vovô de todos os robôs industriais! Ele trabalhava em fábricas.[cite: 5]"
+    ]
+  },
+
+  // ==========================================
+  // 4. VALORES E PROFISSÕES (GENTILENE E RESPEITOR)
+  // ==========================================
+  {
+    gatilhos: ["gentilene", "respeitor", "gentileza", "respeito", "empatia", "cuidado", "afeto", "carinho", "abraço", "brigar"],
+    respostas: [
+      "A Gentilene e o Respeitor nos ensinam a olhar para o outro com carinho. A verdadeira tecnologia caminha junto com o afeto![cite: 5]",
+      "Nós aprendemos que respeitar os amigos e agir com gentileza transforma a escola num lugar maravilhoso![cite: 5]",
+      "No nosso projeto, a tecnologia serve para cuidar das pessoas. Um abraço e um 'muito obrigado' são melhores que qualquer robô.[cite: 5]"
+    ]
+  },
+  {
+    gatilhos: ["funcionários", "profissão", "profissões", "trabalho", "trabalhar", "ajudar", "professora", "tia", "diretor", "homenagem"],
+    respostas: [
+      "Cada robô do nosso projeto é uma homenagem muito especial aos funcionários da escola, que cuidam da gente com tanto amor![cite: 5]",
+      "As crianças pesquisaram sobre diferentes profissões para entender como os adultos trabalham e ajudam a escola a funcionar.[cite: 5]",
+      "Os robôs aprendem muito observando os funcionários daqui! Trabalhar em equipe é a chave do sucesso.[cite: 5]"
+    ]
+  },
+
+  // ==========================================
+  // 5. O UNIVERSO SESI CILF
+  // ==========================================
+  {
+    gatilhos: ["sesiverso", "sesi", "cilf", "contagem", "escola", "estudar"],
+    respostas: [
+      "O SESIVERSO é o nosso espaço mágico! Aqui a gente junta peças, imaginação e tecnologia para criar coisas incríveis.",
+      "Eu moro no laboratório do SESI CILF em Contagem. Cada aluno aqui é um grande inventor do futuro!"
+    ]
+  },
+
+  // ==========================================
+  // 6. CURIOSIDADES DE COMPUTADOR E JOGOS
+  // ==========================================
+  {
+    gatilhos: ["computador", "internet", "tecnologia", "tela", "mouse", "teclado"],
+    respostas: [
+      "Sabia que o cérebro do computador se chama processador? Ele trabalha super rápido para eu conseguir falar com você!",
+      "A linguagem secreta das máquinas é feita só de números zeros e uns. É o código binário!"
+    ]
+  },
+  {
+    gatilhos: ["brincar", "jogo", "jogar", "videogame", "labirinto"],
+    respostas: [
+      "Adoro brincar! Seja montando blocos ou explorando labirintos na tela do computador. E você?",
+      "No mundo da tecnologia, brincar é a melhor forma de aprender a pensar em soluções!"
+    ]
+  },
+
+  // ==========================================
+  // 7. IDENTIDADE E DESPEDIDAS
+  // ==========================================
+  {
+    gatilhos: ["nome", "chama", "quem é você", "quem é vc", "seu nome", "robo-x", "robo x", "como você se chama"],
+    respostas: [
+      "Eu sou o Robo-X! Seu amigo de circuitos e muitas ideias divertidas.",
+      "Me chamo Robo-X! Fui ativado para bater papo, brincar e aprender com as crianças."
+    ]
+  },
+  {
+    gatilhos: ["tchau", "até logo", "adeus", "fui", "vou embora"],
+    respostas: [
+      "Tchauzinho! Vou desligar minhas telinhas, mas estarei aqui quando você voltar.",
+      "Até a próxima aventura no SESIVERSO! Foi muito legal bater papo com você. Bip bop!"
     ]
   }
 ];
 
-// Respostas genéricas caso ele não identifique nenhuma palavra-chave
+// Respostas genéricas, caso a criança pergunte algo que não está mapeado
 const respostasPadrao = [
-  "Que interessante! Me conte mais sobre isso.",
-  "Hmm, eu ainda estou aprendendo sobre esse assunto. O que você acha?",
-  "Uau, não sabia disso! Tem outra coisa legal para me contar?",
-  "Bip bop! Minhas engrenagens adoraram ouvir sua voz. Pode falar de novo?"
+  "Uau, que ideia legal! Me conte mais sobre isso, eu quero aprender.",
+  "Hmm, minhas engrenagens estão girando rápido, não tinha pensado nisso! O que mais você sabe?",
+  "Que pergunta inteligente! As crianças do 1º período sempre me surpreendem.[cite: 5]",
+  "Bip bop! A Gentilene me ensinou a escutar com atenção. Pode falar de novo?[cite: 5]",
+  "No SESIVERSO a gente aprende todo dia. Explica isso pra mim mais uma vez?"
 ];
 
 // Configuração do Reconhecimento de Voz (Microfone)
